@@ -1,0 +1,33 @@
+libjemmy2-java (2.3.1.1-4) unstable; urgency=medium
+
+  * Team upload.
+  * Switch to debhelper-compat = 13.
+  * Declare compliance with Debian Policy 4.5.0.
+  * Use canonical VCS URI.
+
+ -- Markus Koschany <apo@debian.org>  Thu, 12 Nov 2020 02:14:09 +0100
+
+libjemmy2-java (2.3.1.1-3) unstable; urgency=medium
+
+  * Team upload.
+  * Switch to compat level 10.
+  * wrap-and-sort -sa.
+  * Use only Build-Depends field.
+  * Use canonical VCS-URI.
+  * Switch to copyright format 1.0.
+  * Declare compliance with Debian Policy 3.9.8.
+
+ -- Markus Koschany <apo@debian.org>  Sat, 22 Oct 2016 16:28:58 +0200
+
+libjemmy2-java (2.3.1.1-2) unstable; urgency=low
+
+  * Updated debian/copyright
+  * Don't install separate file containing copyright notice.
+
+ -- Andrew Ross <ubuntu@rossfamily.co.uk>  Thu, 09 Jun 2011 22:53:26 +0100
+
+libjemmy2-java (2.3.1.1-1) unstable; urgency=low
+
+  * Initial release. (Closes: #628717)
+
+ -- Andrew Ross <ubuntu@rossfamily.co.uk>  Mon, 23 May 2011 22:42:34 +0100

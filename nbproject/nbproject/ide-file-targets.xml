@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir=".." name="JemmyNbProject-IDE">
+    <import file="../../build.xml"/>
+    <property name="ant.script" value="/Users/shura/Jemmy/java.net/build.xml"/>
+    <target name="-compile-tests">
+        <ant antfile="build.xml" dir=".." target="compile-tests"/>
+    </target>
+    <target name="run-selected-file-in-test" depends="-compile-tests">
+        <fail unless="run.class">Must set property 'run.class'</fail>
+        <ant antfile="build.xml" dir=".." target="run-test">
+            <property name="test" value="${run.class}"/>
+        </ant>
+    </target>
+    <target name="debug-selected-file-in-test" depends="-compile-tests">
+        <fail unless="debug.class">Must set property 'debug.class'</fail>
+        <path id="cp">
+            <pathelement location="../${junit}"/>
+            <pathelement location="../${build.tests.dir}"/>
+            <pathelement location="../${build.classes.dir}"/>
+        </path>
+        <path id="sp">
+            <pathelement location="../${test.dir}"/>
+            <pathelement location="../${src.dir}"/>
+        </path>
+        <echo message="${debug.class}"/>
+        <nbjpdastart addressproperty="jpda.address" name="JemmyNbProject" transport="dt_socket">
+            <classpath refid="cp"/>
+            <sourcepath refid="sp"/>
+        </nbjpdastart>
+        <!--java classname="junit.textui.TestRunner" fork="true">
+            <arg value="${debug.class}"/>
+            <classpath refid="cp"/>
+            <jvmarg value="-Xdebug"/>
+            <jvmarg value="-Xrunjdwp:transport=dt_socket,address=${jpda.address}"/>
+        </java-->
+        <junit printsummary="yes" outputtoformatters="true" showoutput="true" fork="true">
+            <classpath refid="cp"/>
+            <jvmarg value="-Xdebug"/>
+            <jvmarg value="-Xrunjdwp:transport=dt_socket,address=${jpda.address}"/>
+            <formatter usefile="false" type="brief"/>
+            <formatter type="xml"/>
+            <test name="${debug.class}"/>
+        </junit>
+    </target>
+</project>

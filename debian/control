@@ -1,0 +1,43 @@
+Source: libjemmy2-java
+Section: java
+Priority: optional
+Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Uploaders:
+ Andrew Ross <ubuntu@rossfamily.co.uk>
+Build-Depends:
+ ant,
+ debhelper-compat (= 13),
+ default-jdk,
+ default-jdk-doc,
+ javahelper (>=0.32~)
+Standards-Version: 4.5.0
+Vcs-Git: https://salsa.debian.org/java-team/libjemmy2-java.git
+Vcs-Browser: https://salsa.debian.org/java-team/libjemmy2-java
+Homepage: http://java.net/projects/jemmy
+
+Package: libjemmy2-java
+Architecture: all
+Depends:
+ ${java:Depends},
+ ${misc:Depends}
+Recommends:
+ ${java:Recommends}
+Description: Java library for automated Java GUI testing
+ Jemmy is a Java library that is used to create automated tests for
+ Java GUI applications. It contains methods to reproduce all user
+ actions which can be performed on Swing/AWT components.
+
+Package: libjemmy2-java-doc
+Architecture: all
+Depends:
+ ${java:Depends},
+ ${misc:Depends}
+Recommends:
+ ${java:Recommends}
+Section: doc
+Description: Java library for automated Java GUI testing (documentation)
+ Jemmy is a Java library that is used to create automated tests for
+ Java GUI applications. It contains methods to reproduce all user
+ actions which can be performed on Swing/AWT components.
+ .
+ This package provides the documentation.

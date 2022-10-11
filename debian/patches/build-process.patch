@@ -1,0 +1,42 @@
+Modify the build process slightly to suit the way we want to build for debian. Link to the
+JDK javadoc.
+
+Index: libjemmy2-java-2.3.1.1/build.xml
+===================================================================
+--- libjemmy2-java-2.3.1.1.orig/build.xml	2011-05-23 23:28:14.950971281 +0100
++++ libjemmy2-java-2.3.1.1/build.xml	2011-05-23 23:35:31.980970479 +0100
+@@ -17,7 +17,7 @@
+ Code is Sun Microsystems, Inc. Portions Copyright 1997-2006 Sun
+ Microsystems, Inc. All Rights Reserved.
+ -->
+-<project name="jemmy" default="compile" basedir=".">
++<project name="jemmy" default="jar" basedir=".">
+     <property name="package" value="org.netbeans.jemmy"/>
+     <property name="src.dir" value="src"/>
+     <property name="test.dir" value="test"/>
+@@ -27,7 +27,7 @@
+     <property name="tests.results.dir" value="build/tests-results"/>
+     <property name="tests.report.dir" value="build/test-report"/>
+     <property name="dist.dir" value="build"/>
+-    <property name="dist.jar" value="build/jemmy.jar"/>
++    <property name="dist.jar" value="build/jemmy2.jar"/>
+     <property name="junit" value="../lib/junit-4.1.jar"/>
+     <property name="test.output" value="false"/>
+     
+@@ -54,12 +54,14 @@
+     <target name="clean">
+         <delete dir="${dist.dir}"/>
+     </target>
+-    <target name="jar" depends="compile">
++    <target name="jar" depends="compile,javadoc">
+         <mkdir dir="${dist.dir}"/>
+         <jar jarfile="${dist.jar}" basedir="${build.classes.dir}" manifest="${build.classes.dir}/org/netbeans/jemmy/version_info"/>
+     </target>
+     <target name="javadoc" depends="compile">
+-        <javadoc classpath="${junit}:${build.classes.dir}" sourcepath="${src.dir}" destdir="${build.javadoc.dir}"/>
++        <javadoc classpath="${junit}:${build.classes.dir}" sourcepath="${src.dir}" destdir="${build.javadoc.dir}">
++            <link href="/usr/share/doc/default-jdk-doc/api" />
++        </javadoc>
+     </target>
+     <target name="jarsrc" depends="jar">
+         <jar jarfile="${dist.jar}" basedir="${src.dir}" update="yes"/>

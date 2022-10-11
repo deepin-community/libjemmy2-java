@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.ant.freeform</type>
+    <configuration>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
+            <name>JemmyNbProject</name>
+        </general-data>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/2">
+            <!-- Do not use Project Properties customizer when editing this file manually. -->
+            <name>JemmyNbProject</name>
+            <properties>
+                <property name="ant.script">../build.xml</property>
+            </properties>
+            <folders>
+                <source-folder>
+                    <label>../src</label>
+                    <location>../src</location>
+                </source-folder>
+                <source-folder>
+                    <label>../test</label>
+                    <location>../test</location>
+                </source-folder>
+                <source-folder>
+                    <label>JemmyNbProject</label>
+                    <location>.</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>src</label>
+                    <type>java</type>
+                    <location>../src</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>test</label>
+                    <type>java</type>
+                    <location>../test</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <build-folder>
+                    <location>../build/classes</location>
+                </build-folder>
+                <build-file>
+                    <location>../build/jemmy.jar</location>
+                </build-file>
+            </folders>
+            <ide-actions>
+                <action name="build">
+                    <script>${ant.script}</script>
+                    <target>compile</target>
+                </action>
+                <action name="javadoc">
+                    <script>${ant.script}</script>
+                    <target>javadoc</target>
+                </action>
+                <action name="test">
+                    <script>${ant.script}</script>
+                    <target>test</target>
+                    <target>-Dtest.output=true</target>
+                </action>
+                <action name="clean">
+                    <script>${ant.script}</script>
+                    <target>clean</target>
+                </action>
+                <action name="rebuild">
+                    <script>${ant.script}</script>
+                    <target>clean</target>
+                    <target>compile</target>
+                </action>
+                <action name="run.single">
+                    <script>nbproject/ide-file-targets.xml</script>
+                    <target>run-selected-file-in-test</target>
+                    <context>
+                        <property>run.class</property>
+                        <folder>../test</folder>
+                        <pattern>\.java$</pattern>
+                        <format>java-name</format>
+                        <arity>
+                            <one-file-only/>
+                        </arity>
+                    </context>
+                </action>
+                <action name="debug.single">
+                    <script>nbproject/ide-file-targets.xml</script>
+                    <target>debug-selected-file-in-test</target>
+                    <context>
+                        <property>debug.class</property>
+                        <folder>../test</folder>
+                        <pattern>\.java$</pattern>
+                        <format>java-name</format>
+                        <arity>
+                            <one-file-only/>
+                        </arity>
+                    </context>
+                </action>
+                <action name="run">
+                    <script>${ant.script}</script>
+                    <target>version</target>
+                </action>
+            </ide-actions>
+            <export>
+                <type>jar</type>
+                <location>../build/jemmy.jar</location>
+                <script>${ant.script}</script>
+                <build-target>compile</build-target>
+            </export>
+            <export>
+                <type>folder</type>
+                <location>../build/classes</location>
+                <script>${ant.script}</script>
+                <build-target>compile</build-target>
+            </export>
+            <view>
+                <items>
+                    <source-folder style="packages">
+                        <label>src</label>
+                        <location>../src</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>test</label>
+                        <location>../test</location>
+                    </source-folder>
+                    <source-file>
+                        <location>${ant.script}</location>
+                    </source-file>
+                </items>
+                <context-menu>
+                    <ide-action name="build"/>
+                    <ide-action name="rebuild"/>
+                    <ide-action name="clean"/>
+                    <ide-action name="javadoc"/>
+                    <ide-action name="run"/>
+                    <ide-action name="test"/>
+                    <action>
+                        <script>${ant.script}</script>
+                        <label>Jar</label>
+                        <target>jar</target>
+                    </action>
+                    <action>
+                        <script>${ant.script}</script>
+                        <label>Compile tests</label>
+                        <target>compile-tests</target>
+                    </action>
+                </context-menu>
+            </view>
+            <subprojects/>
+        </general-data>
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/2">
+            <compilation-unit>
+                <package-root>../src</package-root>
+                <classpath mode="compile">../build/classes:../test</classpath>
+                <built-to>../build/jemmy.jar</built-to>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>../test</package-root>
+                <unit-tests/>
+                <classpath mode="compile">../../lib/junit-4.1.jar:../src:../test:../build/classes</classpath>
+                <built-to>../build/classes</built-to>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+        </java-data>
+    </configuration>
+</project>

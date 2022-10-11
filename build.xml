@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+The contents of this file are subject to the terms of the Common Development
+and Distribution License (the License). You may not use this file except in
+compliance with the License.
+
+You can obtain a copy of the License at http://www.netbeans.org/cddl.html
+or http://www.netbeans.org/cddl.txt.
+
+When distributing Covered Code, include this CDDL Header Notice in each file
+and include the License file at http://www.netbeans.org/cddl.txt.
+If applicable, add the following below the CDDL Header, with the fields
+enclosed by brackets [] replaced by your own identifying information:
+"Portions Copyrighted [year] [name of copyright owner]"
+
+The Original Software is NetBeans. The Initial Developer of the Original
+Code is Sun Microsystems, Inc. Portions Copyright 1997-2006 Sun
+Microsystems, Inc. All Rights Reserved.
+-->
+<project name="jemmy" default="compile" basedir=".">
+    <property name="package" value="org.netbeans.jemmy"/>
+    <property name="src.dir" value="src"/>
+    <property name="test.dir" value="test"/>
+    <property name="build.classes.dir" value="build/classes"/>
+    <property name="build.tests.dir" value="build/tests"/>
+    <property name="build.javadoc.dir" value="build/javadoc"/>
+    <property name="tests.results.dir" value="build/tests-results"/>
+    <property name="tests.report.dir" value="build/test-report"/>
+    <property name="dist.dir" value="build"/>
+    <property name="dist.jar" value="build/jemmy.jar"/>
+    <property name="junit" value="../lib/junit-4.1.jar"/>
+    <property name="test.output" value="false"/>
+    
+    <target name="java">
+        <echo message="Using ${java.vm.version} java"/>
+    </target>
+    <target name="timestamp" unless="buildnumber">
+        <tstamp>
+            <format property="buildnumber" pattern="yyyyMMdd"/>
+        </tstamp>
+    </target>
+    <target name="compile" depends="java,timestamp">
+        <filter token="BUILD_NUMBER" value="${buildnumber}"/>
+        <mkdir dir="${build.classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.classes.dir}" debug="on" source="1.5"/>
+        <copy file="${src.dir}/org/netbeans/jemmy/debug.timeouts" todir="${build.classes.dir}/org/netbeans/jemmy"/>
+        <copy file="${src.dir}/org/netbeans/jemmy/version_info" tofile="${build.classes.dir}/org/netbeans/jemmy/version_info" filtering="on"/>
+    </target>
+    <target name="version" depends="compile">
+        <filter token="BUILD_NUMBER" value="${buildnumber}"/>
+        <mkdir dir="${build.classes.dir}"/>
+        <java classpath="${build.classes.dir}" classname="org.netbeans.jemmy.JemmyProperties" args="-f"/>
+    </target>
+    <target name="clean">
+        <delete dir="${dist.dir}"/>
+    </target>
+    <target name="jar" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <jar jarfile="${dist.jar}" basedir="${build.classes.dir}" manifest="${build.classes.dir}/org/netbeans/jemmy/version_info"/>
+    </target>
+    <target name="javadoc" depends="compile">
+        <javadoc classpath="${junit}:${build.classes.dir}" sourcepath="${src.dir}" destdir="${build.javadoc.dir}"/>
+    </target>
+    <target name="jarsrc" depends="jar">
+        <jar jarfile="${dist.jar}" basedir="${src.dir}" update="yes"/>
+    </target>
+    <target name="jarall" depends="jarsrc">
+    </target>
+    <target name="compile-tests" depends="compile">
+        <mkdir dir="${build.tests.dir}"/>
+        <javac srcdir="${test.dir}" destdir="${build.tests.dir}" debug="on" source="1.5" classpath="../lib/junit-4.1.jar:${build.classes.dir}"/>
+        <copy file="${test.dir}/org/netbeans/jemmy/testing/jemmy_012_prop1" tofile="${build.tests.dir}/org/netbeans/jemmy/testing/jemmy_012_prop1"/>
+        <copy file="${test.dir}/org/netbeans/jemmy/testing/jemmy_012_prop2" tofile="${build.tests.dir}/org/netbeans/jemmy/testing/jemmy_012_prop2"/>
+        <copy file="${test.dir}/org/netbeans/jemmy/testing/jemmy_013_prop1.jar" tofile="${build.tests.dir}/org/netbeans/jemmy/testing/jemmy_013_prop1.jar"/>
+        <copy file="${test.dir}/org/netbeans/jemmy/testing/jemmy_013_prop2.jar" tofile="${build.tests.dir}/org/netbeans/jemmy/testing/jemmy_013_prop2.jar"/>
+        <copy file="${test.dir}/org/netbeans/jemmy/testing/jemmy_014_prop1.zip" tofile="${build.tests.dir}/org/netbeans/jemmy/testing/jemmy_014_prop1.zip"/>
+        <copy file="${test.dir}/org/netbeans/jemmy/testing/jemmy_014_prop2.zip" tofile="${build.tests.dir}/org/netbeans/jemmy/testing/jemmy_014_prop2.zip"/>
+        <copy file="${test.dir}/org/netbeans/jemmy/testing/combo.png" tofile="${build.tests.dir}/org/netbeans/jemmy/testing/combo.png"/>
+    </target>
+    <target name="run-test" depends="compile-tests">
+        <mkdir dir="${tests.results.dir}"/>
+        <junit printsummary="yes" outputtoformatters="true" showoutput="true" fork="true"
+            haltonfailure="true" haltonerror="true" timeout="300000">
+            <classpath>
+                <pathelement location="${junit}"/>
+                <pathelement location="${build.tests.dir}"/>
+                <pathelement location="${build.classes.dir}"/>
+            </classpath>
+            <formatter usefile="false" type="brief"/>
+            <formatter type="xml"/>
+            <test name="${test}"/>
+        </junit>
+    </target>
+    <target name="test" depends="compile-tests">
+        <mkdir dir="${tests.results.dir}"/>
+        <junit printsummary="yes" outputtoformatters="${test.output}" showoutput="${test.output}" fork="true" timeout="120000"
+            failureproperty="tests-failed" errorproperty="tests-failed" dir="${tests.results.dir}">
+            <classpath>
+                <pathelement location="${junit}"/>
+                <pathelement location="${build.tests.dir}"/>
+                <pathelement location="${build.classes.dir}"/>
+            </classpath>
+            <formatter usefile="false" type="brief"/>
+            <formatter type="xml"/>
+            <batchtest fork="yes" todir="${tests.results.dir}">
+                <fileset dir="${test.dir}">
+                    <include name="**/*jemmy_033*.java"/>
+                    <!--include name="**/*Test.java"/-->
+                    <exclude name="**/JemmyTest.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+        <fail message="Some tests failed." if="tests-failed" />
+    </target>
+</project>
+

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Macintosh-120.local" name="org.netbeans.jemmy.WaiterTest" tests="1" time="2.78" timestamp="2008-07-21T13:41:53">
+  <properties>
+    <property name="java.vendor" value="Apple Inc." />
+    <property name="package" value="org.netbeans.jemmy" />
+    <property name="netbeans.user" value="/Users/shura/.netbeans/6.1" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.management.compiler" value="HotSpot Client Compiler" />
+    <property name="tests.report.dir" value="build/test-report" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="sun.boot.class.path" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/ui.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/laf.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/sunrsasign.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/jsse.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/jce.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Classes/charsets.jar" />
+    <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
+    <property name="rave.version" value="2.0.0" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="ant.home" value="/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/java2/ant" />
+    <property name="java.runtime.version" value="1.5.0_13-b05-237" />
+    <property name="debug.class" value="org.netbeans.jemmy.WaiterTest" />
+    <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
+    <property name="user.name" value="shura" />
+    <property name="awt.nativeDoubleBuffering" value="true" />
+    <property name="rave.build" value="thresher-fcs" />
+    <property name="javax.xml.parsers.SAXParserFactory" value="org.netbeans.core.startup.SAXFactoryImpl" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Libraries" />
+    <property name="ant.project.name" value="JemmyNbProject-IDE" />
+    <property name="build.tests.dir" value="build/tests" />
+    <property name="java.version" value="1.5.0_13" />
+    <property name="user.timezone" value="" />
+    <property name="tests.results.dir" value="build/tests-results" />
+    <property name="sun.arch.data.model" value="32" />
+    <property name="http.nonProxyHosts" value="localhost|127.0.0.1|Macintosh-120.local" />
+    <property name="java.endorsed.dirs" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/lib/endorsed" />
+    <property name="com.sun.aas.installRoot" value="/Applications/NetBeans/glassfish-v2ur2" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="MacRoman" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="ant.file.JemmyNbProject-IDE" value="/Users/shura/Jemmy/java.net/nbproject/nbproject/ide-file-targets.xml" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="49.0" />
+    <property name="build.classes.dir" value="build/classes" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home" />
+    <property name="dist.dir" value="build" />
+    <property name="javax.xml.parsers.DocumentBuilderFactory" value="org.netbeans.core.startup.DOMFactoryImpl" />
+    <property name="netbeans.buildnumber" value="200805300101" />
+    <property name="jpda.address" value="localhost:52076" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="org.openide.version" value="deprecated" />
+    <property name="org.openide.TopManager" value="org.netbeans.core.NonGui" />
+    <property name="apple.lang.DisableCompatibilityClasspath" value="true" />
+    <property name="ant.file" value="/Users/shura/Jemmy/java.net/nbproject/nbproject/ide-file-targets.xml" />
+    <property name="os.version" value="10.5.3" />
+    <property name="netbeans.system_http_proxy" value="DIRECT" />
+    <property name="https.nonProxyHosts" value="localhost|127.0.0.1|Macintosh-120.local" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="1.5.0_13-119" />
+    <property name="netbeans.dynamic.classpath" value="/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/platform8/core/core.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/platform8/core/org-openide-filesystems.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/platform8/core/locale/core_ja.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/platform8/core/locale/core_pt_BR.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/platform8/core/locale/core_zh_CN.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/platform8/core/locale/org-openide-filesystems_ja.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/platform8/core/locale/org-openide-filesystems_pt_BR.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/platform8/core/locale/org-openide-filesystems_zh_CN.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/nb6.1/core/org-netbeans-upgrader.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/nb6.1/core/locale/core_nb.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/nb6.1/core/locale/core_nb_ja.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/nb6.1/core/locale/core_nb_pt_BR.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/nb6.1/core/locale/core_nb_zh_CN.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/nb6.1/core/locale/org-netbeans-upgrader_ja.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/nb6.1/core/locale/org-netbeans-upgrader_pt_BR.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/nb6.1/core/locale/org-netbeans-upgrader_zh_CN.jar" />
+    <property name="dist.jar" value="build/jemmy.jar" />
+    <property name="com.apple.mrj.application.apple.menu.about.name" value="NetBeans" />
+    <property name="java.awt.printerjob" value="apple.awt.CPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="apple.awt.CToolkit" />
+    <property name="org.openide.major.version" value="IDE/1" />
+    <property name="org.openide.TopManager.GUI" value="true" />
+    <property name="sun.awt.exception.handler" value="org.netbeans.core.startup.TopLogging$AWTHandler" />
+    <property name="user.home" value="/Users/shura" />
+    <property name="netbeans.home" value="/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/platform8" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.parsers.SAXParser" />
+    <property name="test.dir" value="test" />
+    <property name="java.library.path" value=".:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="java.vendor.url" value="http://www.apple.com/" />
+    <property name="gopherProxySet" value="false" />
+    <property name="java.vm.vendor" value="Apple Inc." />
+    <property name="java.runtime.name" value="Java(TM) 2 Runtime Environment, Standard Edition" />
+    <property name="java.class.path" value="/Users/shura/Jemmy/java.net/lib/junit-4.1.jar:/Users/shura/Jemmy/java.net/build/tests:/Users/shura/Jemmy/java.net/build/classes:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/java2/ant/lib/ant-launcher.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/java2/ant/lib/ant.jar:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/java2/ant/lib/ant-junit.jar" />
+    <property name="ant.version" value="Apache Ant version 1.7.0 compiled on December 13 2006" />
+    <property name="sun.java2d.noddraw" value="true" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="jdk.home" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.5/Home" />
+    <property name="org.openide.specification.version" value="6.2" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="org.netbeans.core.startup.specialResource" value="nullcom.sun.jdo.api.persistence.mapping.ejb" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="java.vendor.url.bug" value="http://bugreport.apple.com/" />
+    <property name="netbeans.dirs" value="/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/nb6.1:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/ide9:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/java2:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/xml2:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/apisupport1:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/enterprise5:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/profiler3:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/gsf1:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/ruby2:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/visualweb2:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/soa2:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/identity2:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/harness:/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/cnd2:" />
+    <property name="os.arch" value="i386" />
+    <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment" />
+    <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
+    <property name="java.ext.dirs" value="/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home/lib/ext" />
+    <property name="build.compiler.emacs" value="true" />
+    <property name="mrj.version" value="1040.1.5.0_13-237" />
+    <property name="user.dir" value="/" />
+    <property name="line.separator" value="
+" />
+    <property name="apple.awt.graphics.UseQuartz" value="false" />
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
+    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
+    <property name="basedir" value="/Users/shura/Jemmy/java.net/nbproject" />
+    <property name="ant.java.version" value="1.5" />
+    <property name="sun.awt.datatransfer.timeout" value="1000" />
+    <property name="ant.core.lib" value="/Applications/NetBeans/NetBeans 6.1.app/Contents/Resources/NetBeans/java2/ant/lib/ant.jar" />
+    <property name="file.encoding" value="MacRoman" />
+    <property name="netbeans.system_http_non_proxy_hosts" value="" />
+    <property name="ant.script" value="/Users/shura/Jemmy/java.net/build.xml" />
+    <property name="ant.file.jemmy" value="/Users/shura/Jemmy/java.net/build.xml" />
+    <property name="java.specification.version" value="1.5" />
+    <property name="src.dir" value="src" />
+    <property name="junit" value="lib/junit-4.1.jar" />
+  </properties>
+  <testcase classname="org.netbeans.jemmy.WaiterTest" name="testIssue30537" time="2.69" />
+  <system-out><![CDATA[Using org.netbeans.jemmy.drivers.APIDriverInstaller driver installer
+Trace:
+Start to wait action "Description"
+Trace:
+"Description" action has been produced in 0 milliseconds with result 
+    : java.lang.Object@c9f997
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
